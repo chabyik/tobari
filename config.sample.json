@@ -1,0 +1,14 @@
+{
+    "domain": "yourdomain.com",
+    "api": {
+        "port": 8080
+    },
+    "web": {
+        "port": 80
+    },
+    "docker": {
+        "imageName": "tobari",
+        "imageVersion": "v1.0.0",
+        "containerName": "tobari"
+    }
+}

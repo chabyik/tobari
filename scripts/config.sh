@@ -1,0 +1,5 @@
+image_name=$(cat ../config.json | jq '.["docker"].["imageName"]')
+image_version=$(cat ../config.json | jq '.["docker"].["imageVersion"]')
+container_name=$(cat ../config.json | jq '.["docker"].["containerName"]')
+api_port=$(cat ../config.json | jq '.["api"].["port"]')
+web_port=$(cat ../config.json | jq '.["web"].["port"]')
