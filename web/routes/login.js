@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const dotenv = require('dotenv');
+const qs = require('qs');
 const config = require('../../config.json');
 const router = express.Router();
 
@@ -14,13 +15,13 @@ router.get('/', async (req, res) => {
                 const discordResponse = await axios({
                     method: 'post',
                     url: 'https://discord.com/api/oauth2/token',
-                    data: {
+                    data: qs.stringify({
                         client_id: process.env.DISCORD_CLIENT_ID,
                         client_secret: process.env.DISCORD_CLIENT_SECRET,
                         grant_type: 'authorization_code',
                         code: req.query.code,
                         redirect_uri: `http://${config.domain}/login`
-                    },
+                    }),
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
                     }
