@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    build: .
+    image: web
+  gateway:
+    build: ./gateway
+    image: gateway
+    ports:
+      - "80:80"
+      - "25565:25565"

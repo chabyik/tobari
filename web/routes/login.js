@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
                     data: {
                         grant_type: 'authorization_code',
                         code: req.query.code,
-                        redirect_uri: `http://${config.domain}:${config.web.port}/login`
+                        redirect_uri: `http://${config.domain}/login`
                     },
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
@@ -44,7 +44,7 @@ router.get('/', async (req, res) => {
                 res.end();
             }
         } else {
-            res.redirect(`https://discord.com/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&response_type=code&redirect_uri=http%3A%2F%2F${config.domain}:${config.web.port}%2Flogin&scope=identify+email+guilds`);
+            res.redirect(`https://discord.com/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&response_type=code&redirect_uri=http%3A%2F%2F${config.domain}%2Flogin&scope=identify+email+guilds`);
         }
     }
 });
