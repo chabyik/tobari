@@ -11,19 +11,18 @@ router.get('/', async (req, res) => {
     else {
         if (req.query.code) {
             try {
-                const authHeader = `Basic ${Buffer.from(`${process.env.DISCORD_CLIENT_ID}:${process.env.DISCORD_CLIENT_TOKEN}`).toString('base64')}`;
-
                 const discordResponse = await axios({
                     method: 'post',
-                    url: 'https://discord.com/api/v10/oauth2/token',
+                    url: 'https://discord.com/api/oauth2/token',
                     data: {
+                        client_id: process.env.DISCORD_CLIENT_ID,
+                        client_secret: process.env.DISCORD_CLIENT_SECRET,
                         grant_type: 'authorization_code',
                         code: req.query.code,
                         redirect_uri: `http://${config.domain}/login`
                     },
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                        authorization: authHeader
+                        'Content-Type': 'application/x-www-form-urlencoded'
                     }
                 });
 
