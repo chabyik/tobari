@@ -5,5 +5,9 @@
     },
     "web": {
         "port": 8000
+    },
+    "key": {
+        "jwk_file_path": "src/api/token/",
+        "jwk_file_name": "key.json"
     }
 }

@@ -1,10 +1,9 @@
 FROM node:22
 
-WORKDIR /usr/src/app
+WORKDIR /tobari
 
-COPY package*.json ./
-RUN npm install
 COPY . .
+RUN npm install
 
 EXPOSE 8000 8001
-CMD ["node", "app.js"]
+CMD ["node", "src/app.js"]

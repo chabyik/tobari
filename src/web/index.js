@@ -1,9 +1,12 @@
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const createError = require('http-errors');
-const path = require('path');
-const fs = require('fs');
+import { fileURLToPath } from 'url';
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+import createError from 'http-errors';
+import path from 'path';
+import fs from 'fs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const ROUTES_DIR = path.join(__dirname, 'routes');
 const VIEWS_DIR = path.join(__dirname, 'views');
@@ -18,10 +21,10 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-fs.readdirSync(ROUTES_DIR).forEach(route => {
-    const router = require(path.join(ROUTES_DIR, route));
+for (let route of fs.readdirSync(ROUTES_DIR)) {
+    const router = await import(path.join(ROUTES_DIR, route));
     app.use(router.path, router.impl);
-});
+}
 
 app.use((req, res, next) => {
     next(createError(404));
@@ -33,4 +36,4 @@ app.use((err, req, res, next) => {
     res.render('error', { status, message: err.message });
 });
 
-module.exports = app;
+export default app;
