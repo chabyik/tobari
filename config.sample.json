@@ -1,5 +1,5 @@
 {
-    "domain": "yourdomain.com",
+    "url": "https://yourdomain.com",
     "api": {
         "port": 8001
     },
