@@ -1,11 +1,14 @@
 import api from './api/index.js';
 import web from './web/index.js';
+import logger from '../utils/logger.js';
+import format from '../utils/format.js';
 import config from '../config.json' with { type: 'json' };
+import locales from '../locales/ko_KR.json' with { type: 'json' };
 
 api.listen(config.api.port, () => {
-    console.log(`API server is listening on ${config.api.port} port.`);
+    logger.info(format(locales.log.api_server_listening, config.api.port));
 });
 
 web.listen(config.web.port, () => {
-    console.log(`Web server is listening on ${config.web.port} port.`);
+    logger.info(format(locales.log.web_server_listening, config.web.port));
 });

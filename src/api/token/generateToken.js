@@ -3,8 +3,11 @@ import { fileURLToPath } from 'url';
 import { existsSync, readFileSync } from 'fs';
 import createError from 'http-errors';
 import path from 'path';
+import logger from '../../../utils/logger.js';
+import format from '../../../utils/format.js';
 import getUser from './getUser.js';
 import generateKey from './generateKey.js';
+import locales from '../../../locales/ko_KR.json' with { type: 'json' };
 import config from '../../../config.json' with { type: 'json' };
 import 'dotenv/config';
 
@@ -31,6 +34,8 @@ export default async function (code) {
         .setIssuedAt()
         .setExpirationTime('1w')
         .sign(secret);
+
+    logger.info(format(locales.log.token_issued, user.info.username, user.info.id));
     
     return token;
 };

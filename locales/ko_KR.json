@@ -1,0 +1,40 @@
+{
+    "web": {
+        "navigation": {
+            "brand": "chabyik's minecraft",
+            "home": "Home",
+            "about": "About",
+            "control": "Control",
+            "login": "Login"
+        },
+        "main": {
+            "index": {
+                "title": "Tobari",
+                "jumbotron": {
+                    "display": "반가워요! 👋",
+                    "content": "한번 생각해 봅시다. 우리들은 현실의 서스펜스에 갇혀 지내며, 수도 없는 잠재적 위협들을 시시각각으로 맞닥뜨리고 있습니다. 또, 주변을 둘러싼 날카로운 모서리들과 정격의 구조물들은 우리의 마음을 더 지치게 만듭니다. 어떤가요, 딱딱한 콘크리트와 알루미늄, 그리고 플라스틱은 이제 조금 지겹지 않나요? 연약한 이너차일드를 위해서 휴식이 필요할지도 모르겠습니다. 멋대로 흘러가는 당신의 구름을 담아줄 작은 그릇, 여기는 마인크래프트입니다.",
+                    "to_control": "놀러가기",
+                    "to_about": "더 알아보기"
+                }
+            },
+            "login": {
+                "already_logged_in": "이미 로그인이 되어있어요!",
+                "login_successful": "로그인 성공!",
+                "error_401": "인증에 실패했어요!",
+                "error_others": "오류가 발생했어요 - {0} {1}"
+            },
+            "error": {
+                "error_occurred": "무언가 좋지 않은 일이 생겼어요."
+            }
+        },
+        "footer": {
+            "copyright": "Copyright 2025. chabyik all rights reserved."
+        }
+    },
+    "log": {
+        "api_server_listening": "API server is listening on {0} port.",
+        "web_server_listening": "Web server is listening on {0} port.",
+        "token_issued": "{0} ({1}) has issued a new token.",
+        "key_generated": "A new secret key has been generated: {0}"
+    }
+}
