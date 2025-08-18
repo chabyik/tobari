@@ -2,11 +2,17 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import createError from 'http-errors';
 import generateToken from './token/generateToken.js';
+import locales from '../../locales/ko_KR.json' with { type: 'json' };
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/floria', (req, res, next) => {
+    res.json({ note3: locales.floria.note3 });
+    res.end();
+});
 
 app.use('/token', async (req, res, next) => {
     const { action } = req.query;

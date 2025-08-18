@@ -1,6 +1,7 @@
 import express from 'express';
 import api from '../apiInstance.js';
 import format from '../../../utils/format.js';
+import logger from '../../../utils/logger.js';
 import config from '../../../config.json' with { type: 'json' };
 import locales from '../../../locales/ko_KR.json' with { type: 'json' };
 import 'dotenv/config';
@@ -9,7 +10,7 @@ const login = locales.web.main.login;
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    if (req.cookies.token) res.send(`<script>alert('${login.already_logged_in}');</script>`).redirect('/');
+    if (req.cookies.token) res.send(`<script>alert('${login.already_logged_in}'); location.href = '/';</script>`);
     else {
         if (req.query.code) {
             try {
@@ -33,7 +34,7 @@ router.get('/', async (req, res) => {
                     res.send(`<script>alert('${login.error_401}'); location.href = '/';</script>`);
                     res.end();
                 } else {
-                    console.log(err);
+                    logger.error(err);
                     res.send(`<script>alert('${format(login.error_others, err.status || 500, err.message)}'); location.href = '/';</script>`);
                     res.end();
                 }

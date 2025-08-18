@@ -1,8 +1,8 @@
 extends layout
 
 block head
-    title Error
+    title #{web.main.error.title}
 
 block content
     h1 #{status} #{message}
-    p Well, something bad happened.
+    p #{web.main.error.error_occurred}

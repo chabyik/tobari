@@ -13,14 +13,11 @@ services:
       - "25565:25565"
     volumes:
       - letsencrypt:/etc/letsencrypt
-      - certbot:/var/www/certbot
       - gateway_log:/var/log/nginx
       - web_log:/tobari/logs
 
 volumes:
   letsencrypt:
-    external: true
-  certbot:
     external: true
   gateway_log:
     driver: local

@@ -13,7 +13,7 @@ import 'dotenv/config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const { jwk_file_path, jwk_file_name } = config.key;
-const ROOT_DIR = path.join(__dirname, '..', '..');
+const ROOT_DIR = path.join(__dirname, '..', '..', '..');
 
 export default async function (code) {
     const user = await getUser(code);

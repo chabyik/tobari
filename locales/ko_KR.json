@@ -24,6 +24,7 @@
                 "error_others": "오류가 발생했어요 - {0} {1}"
             },
             "error": {
+                "title": "오류",
                 "error_occurred": "무언가 좋지 않은 일이 생겼어요."
             }
         },
@@ -36,5 +37,8 @@
         "web_server_listening": "Web server is listening on {0} port.",
         "token_issued": "{0} ({1}) has issued a new token.",
         "key_generated": "A new secret key has been generated: {0}"
+    },
+    "floria": {
+        "note3": "세 번째 연구노트 - 어느 이름공간에 갇힘. 원래 있던 세계로부터 유의미한 인과성을 잃어버린 것으로 추측. 현재 이 공간은 원자적으로 매우 정교하게 설계됨. 매우 정교하게..."
     }
 }

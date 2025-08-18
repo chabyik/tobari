@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import createError from 'http-errors';
 import path from 'path';
 import fs from 'fs';
+import locales from '../../locales/ko_KR.json' with { type: 'json' };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -32,8 +33,9 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
     const status = err.status || 500;
+    res.locals = Object.assign(locales, { status, message: err.message });
     res.status(status);
-    res.render('error', { status, message: err.message });
+    res.render('error');
 });
 
 export default app;
