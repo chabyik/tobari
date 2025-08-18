@@ -5,7 +5,7 @@ import path from 'path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const { combine, timestamp, label, printf, colorize } = winston.format;
-const logDir = path.join(__dirname, 'logs');
+const logDir = path.join(__dirname, '..', 'logs');
 
 const logFormat = printf(({ level, message, label, timestamp }) => {
     return `${timestamp} [${label}] ${level}: ${message}`;

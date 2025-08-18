@@ -15,8 +15,10 @@ You need to install [Docker](https://www.docker.com) with [Docker Compose Plugin
 
 ## 3. For SSL Support
 
-You must issue a SSL certificate to ensure a secure connection. For apply your SSL certificate to this application, follow these steps:
+You must issue an SSL certificate to ensure a secure connection. For apply your SSL certificate to this application, follow these steps:
 
-1. Create two Docker volumes: `letsencrypt`, `certbot`.
-2. Set up [certbot](https://certbot.eff.org/) in a Docker container connected with the above volumes.
-3. Lastly, turn the server on.
+1. Create a Docker volume: `letsencrypt`.
+    - For example, you can use this command: `docker volume create letsencrypt`
+2. Set up [certbot](https://certbot.eff.org/) in the Docker container environment connected with the above volumes.
+    - To manually issue an SSL certificate with DNS-01 challenge, you can use this command: `docker run -it --rm --name certbot -v letsencrypt:/etc/letsencrypt certbot/certbot certonly -d 'yourdomain.com' --manual --preferred-challenges dns --server https://acme-v02.api.letsencrypt.org/directory`
+3. Lastly, turn on the server.
